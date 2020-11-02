@@ -11,8 +11,12 @@ export class PokemonService {
   private url: string = "https://pokeapi.co/api/v2/pokemon?limit=10";
   constructor(private http: HttpClient) {}
 
-  public getPokemon(): Observable<Pokemon[]> {
+  public getPokemonList(): Observable<Pokemon[]> {
     return this.http.get<Pokemon[]>(this.url);
+  }
+
+  public getPokemon(url: string): Observable<Pokemon> {
+    return this.http.get<Pokemon>(url);
   }
 }
 

@@ -9,14 +9,28 @@ import { PokemonService } from "../services/pokemon.service";
   templateUrl: "./pokemon.component.html"
 })
 export class PokemonComponent {
-  public pokemons: Pokemon[];
+  public pokemons: Pokemon[] = [];
+  public pokemonList: Pokemon[];
 
   constructor(private _pokeService: PokemonService) {}
 
   ngOnInit() {
-    this._pokeService.getPokemon().subscribe(pokemon => {
-      this.pokemons = pokemon["results"];
-      console.log(pokemon["results"]);
+    this.getPokemonList();
+  }
+
+  getPokemonList() {
+    this._pokeService.getPokemonList().subscribe(pokemon => {
+      this.pokemonList = pokemon["results"];
+      for (let p of this.pokemonList) {
+        this.getPokemon(p.url);
+        console.log(p.url);
+      }
+    });
+  }
+
+  getPokemon(url: string) {
+    this._pokeService.getPokemon(url).subscribe(pokemon => {
+      this.pokemons.push(pokemon as Pokemon);
     });
   }
 }

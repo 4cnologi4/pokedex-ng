@@ -8,5 +8,19 @@ import { Pokemon } from "../models/pokemon.interface";
   providedIn: "root"
 })
 export class PokemonService {
-  constructor() {}
+  private url: string = "https://pokeapi.co/api/v2/pokemon?limit=10";
+  constructor(private http: HttpClient) {}
+
+  public getPokemon(): Observable<Pokemon[]> {
+    return this.http.get<Pokemon[]>(this.url);
+  }
 }
+
+// public getUsers(url: string): Observable<IUser[]> {
+//   return this._http.get(url)
+//     .map((response: Response) => <IUser[]>response.json());
+// }
+
+// public getUsers(url: string): Observable<IUser[]> {
+//   return this._http.get<IUser[]>(url);
+// }

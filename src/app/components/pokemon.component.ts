@@ -6,7 +6,8 @@ import { PokemonService } from "../services/pokemon.service";
 
 @Component({
   selector: "pokemon",
-  templateUrl: "./pokemon.component.html"
+  templateUrl: "./pokemon.component.html",
+  styleUrls: ["./pokemon.component.css"]
 })
 export class PokemonComponent {
   public pokemons: Pokemon[] = [];

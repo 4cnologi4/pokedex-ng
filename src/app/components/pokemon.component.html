@@ -1,11 +1,14 @@
-<div *ngFor="let pokemon of pokemonList">
-	{{pokemon.name}}
-	{{pokemon.url}}
-</div>
-
-<div *ngFor="let pokemon of pokemons">
-	{{pokemon.name}}
-	{{pokemon.weight}}
-	<img [src]="pokemon.sprites['front_default']" >
-	<img [src]="pokemon.sprites['back_default']" >
-</div>
+<div class="grid-container" *ngFor="let pokemon of pokemons">
+	<h2 class="grid-title">
+		{{pokemon.name}}
+	</h2>
+	<div class="grid-item">
+		<img [src]="pokemon.sprites.front_default" >
+  </div>
+		<div class="grid-item">
+			<img [src]="pokemon.sprites.back_default" >
+  </div>
+			<div class="grid-item">
+				<img [src]="pokemon.sprites.back_shiny" >
+  </div>
+			</div>

@@ -24,7 +24,6 @@ export class PokemonComponent {
       this.pokemonList = pokemon["results"];
       for (let p of this.pokemonList) {
         this.getPokemon(p.url);
-        console.log(p.url);
       }
     });
   }

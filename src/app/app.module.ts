@@ -5,7 +5,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { AngularMaterialModule } from "./material-module/angular-material.module";
 
 import { AppComponent } from "./app.component";
-import { PokemonComponent } from "./components/pokemon.component";
+import { ListPokemonComponent } from "./components/list-pokemon/list-pokemon.component";
+import { PokemonComponent } from "./components/pokemon/pokemon.component";
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { PokemonComponent } from "./components/pokemon.component";
     HttpClientModule,
     AngularMaterialModule
   ],
-  declarations: [AppComponent, PokemonComponent],
+  declarations: [AppComponent, PokemonComponent, ListPokemonComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Pokemon } from "../models/pokemon.interface";
+import { Pokemon } from "../../models/pokemon.interface";
 
-import { PokemonService } from "../services/pokemon.service";
+import { PokemonService } from "../../services/pokemon.service";
 
 @Component({
-  selector: "pokemon",
+  selector: "pokemon-component",
   templateUrl: "./pokemon.component.html",
   styleUrls: ["./pokemon.component.css"]
 })

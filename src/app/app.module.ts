@@ -2,12 +2,18 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { AngularMaterialModule } from "./material-module/angular-material.module";
 
 import { AppComponent } from "./app.component";
 import { PokemonComponent } from "./components/pokemon.component";
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AngularMaterialModule
+  ],
   declarations: [AppComponent, PokemonComponent],
   bootstrap: [AppComponent]
 })

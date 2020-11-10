@@ -8,7 +8,7 @@ import { Pokemon } from "../models/pokemon.interface";
   providedIn: "root"
 })
 export class PokemonService {
-  private url: string = "https://pokeapi.co/api/v2/pokemon?limit=10";
+  private url: string = "https://pokeapi.co/api/v2/pokemon?limit=12";
   constructor(private http: HttpClient) {}
 
   public getPokemonList(): Observable<Pokemon[]> {

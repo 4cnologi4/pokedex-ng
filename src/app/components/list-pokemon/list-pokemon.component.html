@@ -1,1 +1,3 @@
-<pokemon-component></pokemon-component>
+<div class="grid-container">
+	<pokemon-component *ngFor="let pokemon of listPokemon" [url]="pokemon.url"></pokemon-component>
+</div>

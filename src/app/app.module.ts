@@ -7,6 +7,7 @@ import { AngularMaterialModule } from "./material-module/angular-material.module
 import { AppComponent } from "./app.component";
 import { ListPokemonComponent } from "./components/list-pokemon/list-pokemon.component";
 import { PokemonComponent } from "./components/pokemon/pokemon.component";
+import { ContextMenuComponent } from "./components/context-menu/context-menu.component";
 
 @NgModule({
   imports: [
@@ -15,7 +16,12 @@ import { PokemonComponent } from "./components/pokemon/pokemon.component";
     HttpClientModule,
     AngularMaterialModule
   ],
-  declarations: [AppComponent, PokemonComponent, ListPokemonComponent],
+  declarations: [
+    AppComponent,
+    PokemonComponent,
+    ListPokemonComponent,
+    ContextMenuComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

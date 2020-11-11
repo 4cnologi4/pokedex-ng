@@ -7,7 +7,7 @@ import { Pokemon } from "../../models/pokemon.interface";
   selector: "context-menu",
   templateUrl: "context-menu.component.html"
 })
-export class ContextMenuExample {
+export class ContextMenuComponent {
   items = [
     { id: 1, name: "Item 1" },
     { id: 2, name: "Item 2" },
@@ -28,13 +28,21 @@ export class ContextMenuExample {
     this.contextMenu.openMenu();
   }
 
-  onContextMenuAction1(pokemon: Pokemon) {
-    alert(`Click on Action 1 for ${pokemon.name}`);
+  onContextMenuAction1(item: Item) {
+    alert(`Click on Action 1 for ${item.name}`);
   }
 
-  onContextMenuAction2(pokemon: Pokemon) {
-    alert(`Click on Action 2 for ${pokemon.name}`);
+  onContextMenuAction2(item: Item) {
+    alert(`Click on Action 2 for ${item.name}`);
   }
+
+  // onContextMenuAction1(pokemon: Pokemon) {
+  //   alert(`Click on Action 1 for ${pokemon.name}`);
+  // }
+
+  // onContextMenuAction2(pokemon: Pokemon) {
+  //   alert(`Click on Action 2 for ${pokemon.name}`);
+  // }
 }
 
 export interface Item {

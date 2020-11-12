@@ -1,4 +1,4 @@
-<mat-card class="grid-item">
+<mat-card class="grid-item" (contextmenu)="openMenu($event, item)">
 	<mat-card-header>
 		<div id="avatar" mat-card-avatar>
 			<img class="header-image" [src]="pokemon.sprites.front_shiny" alt="profile">

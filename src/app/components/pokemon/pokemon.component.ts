@@ -50,6 +50,6 @@ export class PokemonComponent implements OnInit {
   }
 
   showResume() {
-    alert(`Click on Action 2 for ${this.pokemon.name}`);
+    alert(`Nombre: ${this.pokemon.name}`);
   }
 }

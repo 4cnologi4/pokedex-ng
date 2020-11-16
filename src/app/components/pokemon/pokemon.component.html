@@ -1,4 +1,4 @@
-<mat-card class="grid-item" (contextmenu)="openMenu($event, item)">
+<mat-card class="grid-item" (contextmenu)="onContextMenu($event)">
 	<mat-card-header>
 		<div id="avatar" mat-card-avatar>
 			<img class="header-image" [src]="pokemon.sprites.front_shiny" alt="profile">
@@ -30,3 +30,13 @@
       </button>
 	</mat-card-actions>
 </mat-card>
+
+<div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x"
+	[style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
+</div>
+<mat-menu #contextMenu="matMenu">
+	<ng-template matMenuContent let-pokemon="pokemon">
+		<button mat-menu-item (click)="showResume(pokemon)">Like</button>
+		<button mat-menu-item (click)="rotateImage(pokemon)">Rotate</button>
+	</ng-template>
+</mat-menu>

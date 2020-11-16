@@ -1,10 +1,9 @@
 import { Component, OnInit, Input, ViewChild } from "@angular/core";
+import { MatMenuTrigger } from "@angular/material/menu";
 
 import { Pokemon } from "../../models/pokemon.interface";
 
 import { PokemonService } from "../../services/pokemon.service";
-
-import { ContextMenuComponent } from "../context-menu/context-menu.component";
 
 @Component({
   selector: "pokemon-component",
@@ -12,18 +11,14 @@ import { ContextMenuComponent } from "../context-menu/context-menu.component";
   styleUrls: ["./pokemon.component.css"]
 })
 export class PokemonComponent implements OnInit {
-  @ViewChild(ContextMenuComponent, {static: false}) contextMenu: ContextMenuComponent;
+  @ViewChild(MatMenuTrigger)
+  contextMenu: MatMenuTrigger;
   public pokemon: Pokemon;
   @Input() url: string;
   public front: boolean;
   public urlImage: string;
 
   constructor(private _pokeService: PokemonService) {}
-
-  openMenu(event: MouseEvent, item: Item) {
-    console.log(this.contextMenu);
-    this.contextMenu.onContextMenu(event, item);
-  }
 
   ngOnInit() {
     this.getPokemon(this.url);
@@ -43,9 +38,18 @@ export class PokemonComponent implements OnInit {
       : this.pokemon.sprites.back_default;
     this.front = !this.front;
   }
-}
 
-export interface Item {
-  id: number;
-  name: string;
+  contextMenuPosition = { x: "0px", y: "0px" };
+
+  onContextMenu(event: MouseEvent) {
+    event.preventDefault();
+    this.contextMenuPosition.x = event.clientX + "px";
+    this.contextMenuPosition.y = event.clientY + "px";
+    this.contextMenu.menu.focusFirstItem("mouse");
+    this.contextMenu.openMenu();
+  }
+
+  showResume() {
+    alert(`Click on Action 2 for ${this.pokemon.name}`);
+  }
 }

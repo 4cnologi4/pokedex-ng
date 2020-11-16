@@ -8,7 +8,6 @@ import { AngularMaterialModule } from "./material-module/angular-material.module
 import { AppComponent } from "./app.component";
 import { ListPokemonComponent } from "./components/list-pokemon/list-pokemon.component";
 import { PokemonComponent } from "./components/pokemon/pokemon.component";
-import { ContextMenuComponent } from "./components/context-menu/context-menu.component";
 
 @NgModule({
   imports: [
@@ -18,12 +17,7 @@ import { ContextMenuComponent } from "./components/context-menu/context-menu.com
     BrowserAnimationsModule,
     AngularMaterialModule
   ],
-  declarations: [
-    AppComponent,
-    PokemonComponent,
-    ListPokemonComponent,
-    ContextMenuComponent
-  ],
+  declarations: [AppComponent, PokemonComponent, ListPokemonComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

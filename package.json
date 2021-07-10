@@ -1,0 +1,19 @@
+{
+  "name": "pokedex-ng",
+  "version": "1.0.0",
+  "description": "[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/pokedex-ng)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4cnologi4/pokedex-ng.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4cnologi4/pokedex-ng/issues"
+  },
+  "homepage": "https://github.com/4cnologi4/pokedex-ng#readme"
+}

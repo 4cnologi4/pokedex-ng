@@ -51,5 +51,6 @@ export class PokemonComponent implements OnInit {
 
   showResume() {
     alert(`Nombre: ${this.pokemon.name}`);
+    console.log(`Nombre: ${this.pokemon.name}`);
   }
 }

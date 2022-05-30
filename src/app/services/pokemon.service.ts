@@ -5,11 +5,12 @@ import { Observable } from "rxjs";
 import * as url from "../routes/pokemon";
 
 import { ListPokemon, ListTypes, Pokemon, Type, Types } from "../models/pokemon.interface";
+import { IPokemonService } from "../interfaces/IPokemonService";
 
 @Injectable({
   providedIn: "root"
 })
-export class PokemonService {
+export class PokemonService implements IPokemonService {
   constructor(private http: HttpClient) {}
 
   public getAll(): Observable<ListPokemon> {

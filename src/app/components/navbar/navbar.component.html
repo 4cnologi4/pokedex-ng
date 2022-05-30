@@ -1,0 +1,22 @@
+<mat-toolbar>
+  <span class="fill-remaining-space">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <a routerLink="/pokemons">
+        <button mat-menu-item>
+        <mat-icon>catching_pokemon</mat-icon>
+        <span>Home</span>
+      </button>
+    </a>
+    <a routerLink="/types">
+      <button mat-menu-item>
+        <mat-icon>class</mat-icon>
+        <span>Types</span>
+      </button>
+    </a>
+    </mat-menu>
+  </span>
+  <span class="fill-remaining-space">Pokemon</span>
+</mat-toolbar>

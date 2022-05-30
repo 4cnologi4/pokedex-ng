@@ -8,7 +8,7 @@ import { PokemonService } from "../../services/pokemon.service";
 @Component({
   selector: "pokemon-component",
   templateUrl: "./pokemon.component.html",
-  styleUrls: ["./pokemon.component.css"]
+  styleUrls: ["./pokemon.component.css"],
 })
 export class PokemonComponent implements OnInit {
   @ViewChild(MatMenuTrigger)
@@ -25,7 +25,7 @@ export class PokemonComponent implements OnInit {
   }
 
   getPokemon(url: string) {
-    this._pokeService.getPokemon(url).subscribe(pokemon => {
+    this._pokeService.getPokemon(url).subscribe((pokemon) => {
       this.pokemon = pokemon;
       this.urlImage = pokemon.sprites.front_default;
       this.front = true;

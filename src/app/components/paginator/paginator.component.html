@@ -1,0 +1,14 @@
+<div>
+  <button mat-raised-button (click)="getNextPokemons(paginator.prev)">
+    <mat-icon>keyboard_double_arrow_left</mat-icon>
+  </button>
+  <button mat-raised-button (click)="getNextPokemons(paginator.next)">
+    <mat-icon>keyboard_double_arrow_right</mat-icon>
+  </button>
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let size of sizes" value="size">{{ size }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

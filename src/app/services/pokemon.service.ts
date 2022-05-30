@@ -2,29 +2,39 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
-import { Pokemon } from "../models/pokemon.interface";
+import * as url from "../routes/pokemon";
+
+import { ListPokemon, ListTypes, Pokemon, Type, Types } from "../models/pokemon.interface";
 
 @Injectable({
   providedIn: "root"
 })
 export class PokemonService {
-  private url: string = "https://pokeapi.co/api/v2/pokemon?limit=12";
   constructor(private http: HttpClient) {}
 
-  public getPokemonList(): Observable<Pokemon[]> {
-    return this.http.get<Pokemon[]>(this.url);
+  public getAll(): Observable<ListPokemon> {
+    return this.http.get<ListPokemon>(`${url.pokemonList}?limit=15`);
+  }
+
+  public getPokemonList(limit: number, offset: number): Observable<ListPokemon> {
+    return this.http.get<ListPokemon>(`${url.pokemonList}?limit=${limit}&offset=${offset}`);
+  }
+
+  public getPokemonPaginationList(url: string): Observable<ListPokemon> {
+    return this.http.get<ListPokemon>(url);
   }
 
   public getPokemon(url: string): Observable<Pokemon> {
     return this.http.get<Pokemon>(url);
   }
+
+  public getCatalogType(): Observable<ListTypes> {
+    return this.http.get<ListTypes>(url.pokemonType.types);
+  }
+
+  public getType(name: string): Observable<Type> {
+    return this.http.get<Type>(`${url.pokemonType.types}/${name}`);
+  }
+
 }
 
-// public getUsers(url: string): Observable<IUser[]> {
-//   return this._http.get(url)
-//     .map((response: Response) => <IUser[]>response.json());
-// }
-
-// public getUsers(url: string): Observable<IUser[]> {
-//   return this._http.get<IUser[]>(url);
-// }

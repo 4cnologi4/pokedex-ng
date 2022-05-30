@@ -5,9 +5,10 @@ import { Paginator } from "src/app/models/paginator.interface";
 import { Pokemon } from "src/app/models/pokemon.interface";
 import { PokemonService } from "../../services/pokemon.service";
 
-import * as fromApp from '../../ngrx/app.reducer';
+import * as fromApp from "../../ngrx/app.reducer";
 import { selectListPokemons } from "src/app/ngrx/pokemon.selectors";
 import { fetchPokemons } from "src/app/ngrx/pokemon.actions";
+import { Params } from "src/app/models/params.interface";
 
 @Component({
   selector: "list-pokemon-component",
@@ -18,16 +19,17 @@ export class ListPokemonComponent implements OnInit {
   // public listPokemon: Observable<Pokemon[]>;
   public listPokemon: Observable<Pokemon[]> = new Observable();
   // public paginator: Paginator;
-  public limit: number = 5;
-  public offset: number = 0;
+  public params: Params = {
+    limit: 5,
+    offset: 1,
+  };
 
   public subscription: Subscription;
-  constructor(
-    private store: Store<fromApp.AppState>
-  ) {}
+  constructor(private store: Store<fromApp.AppState>) {}
 
   ngOnInit(): void {
-    this.store.dispatch(fetchPokemons());
+    // this.store.dispatch(fetchPokemons());
+    this.store.dispatch(fetchPokemons({ params: this.params }));
     this.listPokemon = this.store.select(selectListPokemons);
     console.log(this.listPokemon);
     // this.getWithNgrx();
@@ -59,5 +61,4 @@ export class ListPokemonComponent implements OnInit {
   public getNextPokemons() {}
 
   public getPrevPokemons() {}
-
 }

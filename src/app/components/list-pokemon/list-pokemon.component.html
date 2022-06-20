@@ -1,3 +1,6 @@
 <div class="grid-container">
-	<pokemon-component *ngFor="let pokemon of listPokemon | async" [url]="pokemon.url"></pokemon-component>
+	<pokemon-component 
+		*ngFor="let pokemon of listPokemon | async" 
+		[url]="pokemon.url">
+	</pokemon-component>
 </div>

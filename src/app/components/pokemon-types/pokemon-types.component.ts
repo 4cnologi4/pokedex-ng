@@ -15,7 +15,13 @@ export class PokemonTypesComponent implements OnInit {
   pokeUrl: string;
   coverImg: string;
 
-  public constructor(private _pokeService: PokemonService) {}
+  public constructor(private _pokeService: PokemonService) {
+    this.type = {
+      id: 0,
+      name: "",
+      pokemon: [],
+    };
+  }
 
   ngOnInit() {
     this.getType(this.url);
@@ -31,5 +37,4 @@ export class PokemonTypesComponent implements OnInit {
         );
     });
   }
-  
 }

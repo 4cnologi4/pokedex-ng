@@ -50,6 +50,23 @@ export class PokemonEffects {
     )
   );
 
+  fetchPokemonTypes$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ACTION_TYPES.FETCH_TYPES),
+      mergeMap(action =>
+        this.pokemonService
+          .getCatalogType()
+          .pipe(
+            map((response) => ({
+              type: ACTION_TYPES.LOADED_TYPES,
+              response,
+            })),
+            catchError(() => EMPTY)
+          )
+      )
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private pokemonService: PokemonService

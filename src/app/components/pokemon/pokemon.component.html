@@ -1,42 +1,43 @@
 <mat-card class="grid-item" (contextmenu)="onContextMenu($event)">
-	<mat-card-header>
-		<div id="avatar" mat-card-avatar>
-			<img class="header-image" [src]="pokemon.sprites.front_shiny" alt="profile">
-      </div>
-			<mat-card-title>{{pokemon.name}}</mat-card-title>
-			<mat-card-subtitle>Id: {{pokemon.id}}</mat-card-subtitle>
-	</mat-card-header>
-	<img mat-card-image [src]="urlImage"img alt="Photo">
-	<mat-card-content>
-		<h3>About</h3>
-		<p>
-			Weight: {{pokemon.weight}}
-		</p>
-		<p>
-			Height: {{pokemon.height}}
-		</p>
-		<p>
-			Base_experience: {{pokemon.base_experience}}
-		</p>
-	</mat-card-content>
-	<mat-card-actions>
-		<button mat-button (click)="showResume()">
+  <mat-card-header>
+    <div id="avatar" mat-card-avatar>
+      <img
+        class="header-image"
+        [src]="pokemon?.sprites.front_shiny"
+        alt="profile"
+      />
+    </div>
+    <mat-card-title>{{ pokemon.name }}</mat-card-title>
+    <mat-card-subtitle>Id: {{ pokemon.id }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="urlImage" img alt="Photo" />
+  <mat-card-content>
+    <h3>About</h3>
+    <p>Weight: {{ pokemon.weight }}</p>
+    <p>Height: {{ pokemon.height }}</p>
+    <p>Base_experience: {{ pokemon.base_experience }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="showResume()">
       <mat-icon>thumb_up</mat-icon>
       LIKE
-      </button>
-		<button mat-button (click)=rotateImage()>
+    </button>
+    <button mat-button (click)="rotateImage()">
       <mat-icon>360</mat-icon>
       ROTATE
-      </button>
-	</mat-card-actions>
+    </button>
+  </mat-card-actions>
 </mat-card>
 
-<div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x"
-	[style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
-</div>
+<div
+  style="visibility: hidden; position: fixed"
+  [style.left]="contextMenuPosition.x"
+  [style.top]="contextMenuPosition.y"
+  [matMenuTriggerFor]="contextMenu"
+></div>
 <mat-menu #contextMenu="matMenu">
-	<ng-template matMenuContent let-pokemon="pokemon">
-		<button mat-menu-item (click)="showResume()">Like</button>
-		<button mat-menu-item (click)="rotateImage()">Rotate</button>
-	</ng-template>
+  <ng-template matMenuContent let-pokemon="pokemon">
+    <button mat-menu-item (click)="showResume()">Like</button>
+    <button mat-menu-item (click)="rotateImage()">Rotate</button>
+  </ng-template>
 </mat-menu>

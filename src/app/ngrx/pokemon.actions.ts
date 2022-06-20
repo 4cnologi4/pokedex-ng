@@ -1,7 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { Params } from "../models/params.interface";
 
-import { ListPokemon, Pokemon } from "../models/pokemon.interface";
+import { ListPokemon, ListTypes, Pokemon } from "../models/pokemon.interface";
 import { ACTION_TYPES } from "./pokemon.constants";
 
 // export const fetchPokemons = createAction(
@@ -18,3 +18,12 @@ export const loadedPokemons = createAction(
   props<{ response: ListPokemon }>()
   // props<{ pokemons: Pokemon[] }>()
 );
+
+export const fetchTypes = createAction(
+  ACTION_TYPES.FETCH_TYPES
+)
+
+export const loadedTypes = createAction(
+  ACTION_TYPES.LOADED_TYPES,
+  props<{ response: ListTypes }>()
+)

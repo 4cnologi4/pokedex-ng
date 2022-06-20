@@ -3,7 +3,8 @@ import * as PokemonActions from './pokemon.actions';
 import { PokemonState } from "./pokemon.state";
 
 export const initialState: PokemonState = {
-    pokemons: []
+    pokemons: [],
+    listTypes: []
 }
 
 export const pokemonReducer = createReducer(
@@ -12,7 +13,12 @@ export const pokemonReducer = createReducer(
         return { ...state }
     }),
     on(PokemonActions.loadedPokemons, (state, payload) => {
-        console.log({payload})
         return { ...state, pokemons: payload.response.results }
+    }),
+    on(PokemonActions.fetchTypes, (state) => {
+        return { ...state }
+    }),
+    on(PokemonActions.loadedTypes, (state, payload) => {
+        return { ...state, listTypes: payload.response.results }
     })
 );

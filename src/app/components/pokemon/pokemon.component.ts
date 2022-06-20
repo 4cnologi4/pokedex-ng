@@ -18,7 +18,17 @@ export class PokemonComponent implements OnInit {
   public front: boolean;
   public urlImage: string;
 
-  constructor(private _pokeService: PokemonService) {}
+  constructor(private _pokeService: PokemonService) {
+    this.pokemon = {
+      id: 0,
+      name: "",
+      weight: 0,
+      height: 0,
+      url: "",
+      sprites: { front_shiny: "", front_default: "", back_default: "" },
+      base_experience: "",
+    };
+  }
 
   ngOnInit() {
     this.getPokemon(this.url);

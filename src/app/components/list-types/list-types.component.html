@@ -1,3 +1,15 @@
-<div class="grid-container">
-	<pokemon-types *ngFor="let type of listTypes" [url]="type.name"></pokemon-types>
+<div class="grid-container" 
+	 *ngIf="listTypes | async as types; else loading">
+	<pokemon-types 
+		*ngFor="let type of types" 
+		[url]="type.name" >
+	</pokemon-types>
 </div>
+
+<ng-template #loading>
+	Loading...
+</ng-template>
+
+<ng-template #nodata>
+	Nothing to show!
+</ng-template>

@@ -21,7 +21,7 @@ export class ListPokemonComponent implements OnInit {
   // public paginator: Paginator;
   public params: Params = {
     limit: 5,
-    offset: 1,
+    offset: 0,
   };
 
   public subscription: Subscription;

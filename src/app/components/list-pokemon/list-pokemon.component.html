@@ -1,6 +1,14 @@
 <div class="grid-container">
-	<pokemon-component 
-		*ngFor="let pokemon of listPokemon | async" 
-		[url]="pokemon.url">
-	</pokemon-component>
+  <pokemon-component
+    *ngFor="let pokemon of listPokemon | async"
+    [url]="pokemon.url"
+  >
+  </pokemon-component>
 </div>
+<button
+  (click)="getPrevPokemons()"
+  [disabled]="isDisabled ? 'disabled' : null"
+>
+  Prev
+</button>
+<button (click)="getNextPokemons()">Next</button>

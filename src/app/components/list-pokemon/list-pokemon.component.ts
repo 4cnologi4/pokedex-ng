@@ -9,6 +9,7 @@ import * as fromApp from "../../ngrx/app.reducer";
 import { selectListPokemons } from "src/app/ngrx/pokemon.selectors";
 import { fetchPokemons } from "src/app/ngrx/pokemon.actions";
 import { Params } from "src/app/models/params.interface";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "list-pokemon-component",
@@ -16,7 +17,7 @@ import { Params } from "src/app/models/params.interface";
   styleUrls: ["./list-pokemon.component.css"],
 })
 export class ListPokemonComponent implements OnInit {
-  // public listPokemon: Observable<Pokemon[]>;
+  public isDisabled: boolean = true;
   public listPokemon: Observable<Pokemon[]> = new Observable();
   // public paginator: Paginator;
   public params: Params = {
@@ -28,37 +29,36 @@ export class ListPokemonComponent implements OnInit {
   constructor(private store: Store<fromApp.AppState>) {}
 
   ngOnInit(): void {
-    // this.store.dispatch(fetchPokemons());
-    this.store.dispatch(fetchPokemons({ params: this.params }));
-    this.listPokemon = this.store.select(selectListPokemons);
+    this.getWithNgrx();
     console.log(this.listPokemon);
-    // this.getWithNgrx();
-    // this.getPokemonList();
   }
 
-  // getPokemonList() {
-  //   this._pokeService
-  //     .getPokemonList(this.limit, this.offset)
-  //     .subscribe((pokemon) => {
-  //       this.listPokemon = pokemon.results;
-  //       this.paginator.count = pokemon.count;
-  //       this.paginator.prev = pokemon.previous;
-  //       this.paginator.next = pokemon.next;
-  //       this.paginator.results = pokemon.results;
-  //       this.offset = 5;
-  //     });
-  // }
+  public getWithNgrx() {
+    this.isDisabled = !(this.params.offset > 0);
+    console.log(this.isDisabled);
+    this.store.dispatch(fetchPokemons({ params: this.params }));
+    this.listPokemon = this.store.select(selectListPokemons);
+  }
 
-  // public getWithNgrx() {
-  //   this.subscription = this.store
-  //     .select('pokemon')
-  //     .pipe(map(pokemonState => pokemonState.pokemons))
-  //     .subscribe((pokemons: Pokemon[]) => {
-  //       this.listPokemon = pokemons;
-  //     });
-  // }
+  public getNextPokemons() {
+    console.log("getNextPokemons");
+    this.params = {
+      ...this.params,
+      offset: this.params.offset + this.params.limit,
+    };
+    this.getWithNgrx();
+  }
 
-  public getNextPokemons() {}
-
-  public getPrevPokemons() {}
+  public getPrevPokemons() {
+    console.log("getPrevPokemons");
+    if (this.params.offset > 0) {
+      this.params = {
+        ...this.params,
+        offset: this.params.offset - this.params.limit,
+      };
+    } else {
+      console.log(this.params);
+    }
+    this.getWithNgrx();
+  }
 }

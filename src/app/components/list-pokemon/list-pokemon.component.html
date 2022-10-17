@@ -1,14 +1,42 @@
-<div class="grid-container">
+<!-- <div class="grid-container">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
   <pokemon-component
     *ngFor="let pokemon of listPokemon | async"
     [url]="pokemon.url"
   >
   </pokemon-component>
 </div>
-<button
-  (click)="getPrevPokemons()"
-  [disabled]="isDisabled ? 'disabled' : null"
->
-  Prev
-</button>
-<button (click)="getNextPokemons()">Next</button>
+<div class="row-buttons">
+  <button
+    mat-button
+    (click)="getPrevPokemons()"
+    [disabled]="isDisabled ? 'disabled' : null"
+  >
+    Prev
+  </button>
+  <button mat-button (click)="getNextPokemons()">Next</button>
+</div> -->
+
+<div class="grid-container">
+  <!-- <mat-spinner *ngIf="isLoading"></mat-spinner> -->
+  <div *ngIf="listPokemon | async as listPokemon; else loading"></div>
+  <pokemon-component
+    *ngFor="let pokemon of listPokemon | async"
+    [url]="pokemon.url"
+  >
+  </pokemon-component>
+</div>
+<div class="row-buttons">
+  <button
+    mat-button
+    (click)="getPrevPokemons()"
+    [disabled]="isDisabled ? 'disabled' : null"
+  >
+    Prev
+  </button>
+  <button mat-button (click)="getNextPokemons()">Next</button>
+</div>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

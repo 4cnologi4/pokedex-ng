@@ -13,6 +13,12 @@ export interface Pokemon {
   url: string;
   sprites: Sprites;
   base_experience: any;
+  types: PokemonTypes[];
+}
+
+interface PokemonTypes {
+  slot: number;
+  type: Types;
 }
 
 interface Sprites {

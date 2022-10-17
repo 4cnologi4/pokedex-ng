@@ -18,6 +18,7 @@ import { map } from "rxjs/operators";
 })
 export class ListPokemonComponent implements OnInit {
   public isDisabled: boolean = true;
+  public isLoading: boolean = false;
   public listPokemon: Observable<Pokemon[]> = new Observable();
   // public paginator: Paginator;
   public params: Params = {
@@ -30,14 +31,15 @@ export class ListPokemonComponent implements OnInit {
 
   ngOnInit(): void {
     this.getWithNgrx();
-    console.log(this.listPokemon);
   }
 
   public getWithNgrx() {
+    this.isLoading = true;
     this.isDisabled = !(this.params.offset > 0);
     console.log(this.isDisabled);
     this.store.dispatch(fetchPokemons({ params: this.params }));
     this.listPokemon = this.store.select(selectListPokemons);
+    this.isLoading = false;
   }
 
   public getNextPokemons() {

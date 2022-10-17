@@ -1,6 +1,52 @@
 export const ACTION_TYPES = {
-    FETCH_POKEMON_LIST: 'FETCH_POKEMON_LIST',
-    LOADED_POKEMONS: 'LOADED_POKEMONS',
-    FETCH_TYPES: 'FETCH_TYPES',
-    LOADED_TYPES: 'LOADED_TYPES' 
-}
+  FETCH_POKEMON_LIST: "FETCH_POKEMON_LIST",
+  LOADED_POKEMONS: "LOADED_POKEMONS",
+  FETCH_TYPES: "FETCH_TYPES",
+  LOADED_TYPES: "LOADED_TYPES",
+};
+
+export const POKEMON_TYPES = {
+  normal: "normal",
+  fighting: "fighting",
+  flying: "flying",
+  poison: "poison",
+  ground: "ground",
+  rock: "rock",
+  bug: "bug",
+  ghost: "ghost",
+  steel: "steel",
+  fire: "fire",
+  water: "water",
+  grass: "grass",
+  electric: "electric",
+  psychic: "psychic",
+  ice: "ice",
+  dragon: "dragon",
+  dark: "dark",
+  fairy: "fairy",
+  unknown: "unknown",
+  shadow: "shadow",
+};
+
+export const COLORS = {
+  img_bg_normal: "rgb(255, 191, 225)",
+  img_bg_fighting: "rgb(178 ,34 ,34)",
+  img_bg_flying: "rgb(0, 255, 255)",
+  img_bg_poison: "rgb(190, 2, 247)",
+  img_bg_ground: "rgb(222, 184, 135)",
+  img_bg_rock: "rgb(128, 132, 135)",
+  img_bg_bug: "rgb(154, 205, 50)",
+  img_bg_ghost: "rgb((128, 0, 128)",
+  img_bg_steel: "rgb(255, 87, 51)",
+  img_bg_fire: "rgb(199, 0, 57)",
+  img_bg_water: "rgb(0, 35, 102",
+  img_bg_grass: "rgb(255, 87, 51)",
+  img_bg_electric: "rgb(255, 255, 0)",
+  img_bg_psychic: "rgb(238, 130, 238)",
+  img_bg_ice: "rgb(127, 255, 212)",
+  img_bg_dragon: "rgb(123, 104, 238",
+  img_bg_dark: "rgb(0, 0, 0)",
+  img_bg_fairy: "rgb(255, 136, 238)",
+  img_bg_unknown: "rgb(0, 0, 0)",
+  img_bg_shadow: "rgb(112,128,144)",
+};
